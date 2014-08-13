@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">  
+  <link rel="stylesheet" href="styles/app.css"/>
+
+  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <script src="lib/onsen/js/onsenui.js"></script>    
+  
+  <!-- <script src="cordova.js"></script>  -->
+  <script src="js/app.js"></script>  
+  <script>
+    ons.ready(function() {
+    });
+  </script>
+</head>
+
+<body>    
+<ons-sliding-menu
+  above-page="page1.html"
+  behind-page="menu.html"       
+  side="left"
+  max-slide-distance="250px"
+  var="menu">
+</ons-sliding-menu>
+
+<script type="text/ons-template" id="page1.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button ng-click="menu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+      </div>
+      <div class="center">Page 1</div>
+    </ons-toolbar>
+
+    <p style="text-align: center; color: #999; padding-top: 100px;">Page1 Contents</p>
+  </ons-page>
+</script>
+
+<script type="text/ons-template" id="page2.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="menu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+      </div>
+      <div class="center">Page 2</div>
+    </ons-toolbar>
+
+    <p style="text-align: center; color: #999; padding-top: 100px;">Page2 Contents</p>
+  </ons-page>
+</script>
+
+<script type="text/ons-template" id="menu.html">
+  <ons-list>
+    <ons-list-item modifier="chevron" onclick="menu.setAbovePage('page1.html', {closeMenu: true})">
+      page1.html
+    </ons-list-item>
+    <ons-list-item modifier="chevron" onclick="menu.setAbovePage('page2.html', {closeMenu: true})">
+      page2.html
+    </ons-list-item>
+    
+  </ons-list>
+</script>
+</body>  
+</html>
